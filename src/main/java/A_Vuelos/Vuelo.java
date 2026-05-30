@@ -1,4 +1,4 @@
-package Clase3Ej3;
+package A_Vuelos;
 /**
  * @author Prof Matias Garcia.
  * <p> Copyright (C) 2017 para <a href = "https://www.profmatiasgarcia.com.ar/"> www.profmatiasgarcia.com.ar </a>

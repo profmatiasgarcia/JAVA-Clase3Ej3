@@ -1,7 +1,6 @@
-package Clase3Ej3;
 /**
  * @author Prof Matias Garcia.
- * <p> Copyright (C) 2017 para <a href = "https://www.profmatiasgarcia.com.ar/"> www.profmatiasgarcia.com.ar </a>
+ * <p> Copyright (C) 2026 para <a href = "https://www.profmatiasgarcia.com.ar/"> www.profmatiasgarcia.com.ar </a>
  * - con licencia GNU GPL3.
  * <p> Este programa es software libre. Puede redistribuirlo y/o modificarlo bajo los términos de la
  * Licencia Pública General de GNU según es publicada por la Free Software Foundation, 
@@ -12,30 +11,31 @@ package Clase3Ej3;
  * Debería haber recibido una copia de la Licencia Pública General junto con este programa. 
  * Si no ha sido así ingrese a <a href = "http://www.gnu.org/licenses/"> GNU org </a>
  */
-public class NoHayPasajesException extends Exception {
+package B_Stock;
 
-    private String nombreVuelo;
-    private int pedido = 0;
+public class Item {
 
-    public NoHayPasajesException(String nom, int pas) {
-        setNombreVuelo(nom);
-        setPedido(pas);
+    private String nombre;
+    private int stock;
+
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getNombreVuelo() {
-        return nombreVuelo;
+    public int getStock() {
+        return stock;
     }
 
-    public void setNombreVuelo(String nombreVuelo) {
-        this.nombreVuelo = nombreVuelo;
+    public Item(String nombre, int stock) {
+        this.nombre = nombre;
+        this.stock = stock;
     }
 
-    public int getPedido() {
-        return pedido;
+    public void vender(int cant) throws StockException {
+        if (cant > stock) {
+            throw new StockException("Stock insuficiente: " + stock);
+        }
+        stock -= cant;
+        System.out.println("Venta realizada de " + cant + " " + nombre);
     }
-
-    public void setPedido(int pedido) {
-        this.pedido = pedido;
-    }
-
 }
